@@ -2,9 +2,9 @@ version: "3.8"
 services:
   postgres:
     image: postgres:latest
-    restart: always
     environment:
-      POSTGRES_PASSWORD: 123
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-changeme}
       POSTGRES_DB: arabam_db
     ports:
       - "5432:5432"
+    restart: unless-stopped
